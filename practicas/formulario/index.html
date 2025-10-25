@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registro de Paciente</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f7;
+        margin: 16px;
+        line-height: 1.4;
+      }
+
+      form {
+        max-width: 720px;
+        margin: auto;
+        background: #fff;
+        padding: 16px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      h1 {
+        font-size: 1.4rem;
+        margin: 0 0 16px;
+        text-align: center;
+        color: #333;
+      }
+
+      .g {
+        margin: 10px 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: bold;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #cfcfd4;
+        border-radius: 4px;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: #1177dd;
+        box-shadow: 0 0 3px rgba(17, 119, 221, 0.4);
+      }
+
+      .acciones {
+        margin-top: 16px;
+        text-align: center;
+      }
+
+      button {
+        padding: 10px 14px;
+        border: 1px solid #0b6bcb;
+        background: #1177dd;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.2s;
+      }
+
+      button:hover {
+        background: #0b6bcb;
+      }
+
+      button + button {
+        margin-left: 8px;
+        background: #eef3f9;
+        color: #0b6bcb;
+        border-color: #a7c7ef;
+      }
+
+      button + button:hover {
+        background: #dbe8f7;
+      }
+
+      /* 🔸 Media query básica para pantallas chicas */
+      @media (max-width: 480px) {
+        body {
+          margin: 8px;
+        }
+
+        form {
+          padding: 12px;
+        }
+
+        h1 {
+          font-size: 1.2rem;
+        }
+
+        button {
+          display: block;
+          width: 100%;
+          margin: 8px 0 0;
+        }
+
+        button + button {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <form action="#" method="post" autocomplete="on">
+      <h1>Registro de Paciente</h1>
+
+      <div class="g">
+        <label for="nombre">Nombre *</label>
+        <input id="nombre" name="nombre" type="text" required />
+      </div>
+
+      <div class="g">
+        <label for="apellido">Apellido *</label>
+        <input id="apellido" name="apellido" type="text" required />
+      </div>
+
+      <div class="g">
+        <label for="ocupacion">Ocupación</label>
+        <input id="ocupacion" name="ocupacion" type="text" />
+      </div>
+
+      <div class="g">
+        <label for="nacimiento">Fecha de nacimiento *</label>
+        <input id="nacimiento" name="nacimiento" type="date" required />
+      </div>
+
+      <div class="g">
+        <label for="sangre">Tipo de sangre *</label>
+        <select id="sangre" name="sangre" required>
+          <option value="">Seleccione…</option>
+          <option>O-</option>
+          <option>O+</option>
+          <option>A-</option>
+          <option>A+</option>
+          <option>B-</option>
+          <option>B+</option>
+          <option>AB-</option>
+          <option>AB+</option>
+        </select>
+      </div>
+
+      <div class="g">
+        <label for="peso">Peso (kg)</label>
+        <input
+          id="peso"
+          name="peso"
+          type="number"
+          min="0"
+          step="0.1"
+          placeholder="Ej.: 68.5"
+        />
+      </div>
+
+      <div class="acciones">
+        <button type="submit">Guardar</button>
+        <button type="reset">Limpiar</button>
+      </div>
+    </form>
+  </body>
+</html>
