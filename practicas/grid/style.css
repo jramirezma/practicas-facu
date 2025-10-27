@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+.contenedor{
+margin: 10px 10px;
+background-color: beige;
+width: 90%;
+height: 500px;
+outline: 1px solid;
+
+display: grid;
+grid-template-columns: repeat(7,1fr);
+grid-template-rows: repeat(4,1fr);
+
+column-gap: 5px;
+row-gap: 5px;
+}
+.elemento{
+    color: white;
+text-align: center;
+}
+.caja1{
+background-color: aqua;
+grid-column: 6/8;
+grid-row: 4/5;
+}
+.caja2{
+background-color: blue;
+grid-column: 4/6;
+grid-row: 3/4;
+}
+.caja3{
+background-color: brown;
+grid-column: 1/4;
+grid-row: 3/5;
+}
+.caja4{
+background-color: rgb(27, 235, 79);
+grid-column: 1/8;
+grid-row: 1/3;
+}
