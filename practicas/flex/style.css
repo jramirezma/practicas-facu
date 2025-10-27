@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    margin: 10px 10px;
+    background-color: beige;
+    width: 90%;
+    height: 500px;
+    outline: 1px solid;
+
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.elemento {
+    color: rgb(12, 12, 12);
+    text-align: center;
+    width: 150px;
+    height: 150px;
+}
+
+.caja1 {
+    background-color: aqua;
+
+}
