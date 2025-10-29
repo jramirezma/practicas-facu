@@ -50,6 +50,13 @@
         gap: 16px;
       }
 
+      input:invalid{
+        border: 2px solid red;
+      }
+
+      textarea:invalid{
+        border: 2px solid red;
+      }
       @media (max-width: 900px) {
         .grid-principal {
           grid-template-columns: repeat(2, 1fr);
@@ -65,6 +72,7 @@
           /* achicamos el título */
           h1 {
             font-size: 15px;
+            color: red;
           }
         
           /* quitamos el borde del panel */
@@ -203,14 +211,14 @@
           <form>
             <div class="form-grupo">
               <label>Nombre / Identificador del Paciente</label>
-              <input type="text" placeholder="Ej: L. Quispe (F, 31)" />
+              <input type="text" placeholder="Ej: L. Quispe (F, 31)" required/>
             </div>
 
             <div class="form-grupo">
               <label>Diagnóstico breve</label>
               <textarea
                 rows="3"
-                placeholder="Ej: Pre-eclampsia severa, TA elevada..."
+                placeholder="Ej: Pre-eclampsia severa, TA elevada..." required
               ></textarea>
             </div>
 
