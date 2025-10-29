@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Emergencias - Formularios</title>
+
+    <style>
+      :root {
+        --fondo-pagina: #eef5f8; /* azul gris hospital */
+        --borde-card: #a7c7d8; /* azul suave */
+        --bg-card: #ffffff; /* blanco limpio */
+        --texto-main: #1a2e3a; /* azul oscuro */
+        --texto-sec: #486878; /* azul medio */
+        --btn-bg: #2e9e73; /* verde clínico */
+        --btn-bg-hover: #257c5a;
+        --btn-text: #ffffff;
+        --input-borde: #7fa7bb;
+        --separador: #d2e3ec;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: var(--fondo-pagina);
+        margin: 0;
+        padding: 16px;
+        color: var(--texto-main);
+        font-size: 14px;
+      }
+
+      h1 {
+        margin: 0 0 16px 0;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        color: var(--texto-main);
+      }
+
+      .panel-emergencias {
+        background: var(--bg-card);
+        border: 2px solid var(--borde-card);
+        border-radius: 8px;
+        padding: 16px;
+      }
+
+      /* GRID PRINCIPAL: 3 columnas (paciente / recursos / personal) */
+      .grid-principal {
+        display: grid; /* GRID */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      @media (max-width: 900px) {
+        .grid-principal {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .grid-principal {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* TARJETA */
+      .card {
+        background: var(--bg-card);
+        border: 2px solid var(--borde-card);
+        border-radius: 6px;
+        padding: 12px;
+      }
+
+      .card h2 {
+        font-size: 15px;
+        margin: 0 0 4px 0;
+        font-weight: bold;
+        color: var(--texto-main);
+      }
+
+      .sub-texto {
+        font-size: 12px;
+        color: var(--texto-sec);
+        margin-bottom: 8px;
+      }
+
+      .linea {
+        height: 1px;
+        background: var(--separador);
+        margin-bottom: 12px;
+        border-radius: 2px;
+      }
+
+      /* FORMULARIO BASE */
+      form {
+        background: #f8fcfe;
+        border: 1px solid var(--borde-card);
+        border-radius: 6px;
+        padding: 10px;
+        font-size: 13px;
+      }
+
+      form .form-grupo {
+        display: flex; /* FLEX */
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+
+      form label {
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 4px;
+        color: var(--texto-main);
+      }
+
+      form input,
+      form select,
+      form textarea {
+        font-size: 13px;
+        padding: 6px;
+        border: 1px solid var(--input-borde);
+        border-radius: 4px;
+        background: #ffffff;
+        color: var(--texto-main);
+      }
+
+      form textarea {
+        resize: vertical;
+      }
+
+      form button {
+        background: var(--btn-bg);
+        color: var(--btn-text);
+        border: none;
+        border-radius: 4px;
+        font-size: 13px;
+        padding: 8px 10px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      form button:hover {
+        background: var(--btn-bg-hover);
+      }
+
+      /* FORMULARIO DE RECURSOS: 2 columnas internas con GRID */
+      .form-inline-2col {
+        display: grid; /* GRID */
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      @media (max-width: 400px) {
+        .form-inline-2col {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .footer-mini {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 11px;
+        color: var(--texto-sec);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel-emergencias">
+      <h1>Panel de Emergencias - Registro Rápido</h1>
+
+      <div class="grid-principal">
+        <!-- =========================
+         FORMULARIO PACIENTE
+    ========================== -->
+        <section class="card">
+          <h2>Paciente de Alta Prioridad</h2>
+          <div class="sub-texto">Ingreso / actualización de estado</div>
+          <div class="linea"></div>
+
+          <form>
+            <div class="form-grupo">
+              <label>Nombre / Identificador del Paciente</label>
+              <input type="text" placeholder="Ej: L. Quispe (F, 31)" />
+            </div>
+
+            <div class="form-grupo">
+              <label>Diagnóstico breve</label>
+              <textarea
+                rows="3"
+                placeholder="Ej: Pre-eclampsia severa, TA elevada..."
+              ></textarea>
+            </div>
+
+            <div class="form-grupo">
+              <label>Prioridad</label>
+              <select>
+                <option>CRÍTICO</option>
+                <option>URGENCIA</option>
+                <option>OBSERVACIÓN</option>
+              </select>
+            </div>
+
+            <div class="form-grupo">
+              <label>Ubicación / Box</label>
+              <input type="text" placeholder="Ej: UCI-03 / Trauma Shock" />
+            </div>
+
+            <div class="form-grupo">
+              <label>Tiempo de espera aprox. (min)</label>
+              <input type="number" min="0" placeholder="Ej: 12" />
+            </div>
+
+            <button type="submit">Registrar Paciente</button>
+          </form>
+        </section>
+
+        <!-- =========================
+         FORMULARIO RECURSOS
+    ========================== -->
+        <section class="card">
+          <h2>Recursos Críticos</h2>
+          <div class="sub-texto">Disponibilidad inmediata</div>
+          <div class="linea"></div>
+
+          <form>
+            <div class="form-inline-2col">
+              <div class="form-grupo">
+                <label>Recurso</label>
+                <select>
+                  <option>Oxígeno Portátil</option>
+                  <option>Ventilador</option>
+                  <option>Guantes estériles</option>
+                  <option>Adrenalina (ampollas)</option>
+                </select>
+              </div>
+
+              <div class="form-grupo">
+                <label>Cantidad disponible</label>
+                <input type="number" min="0" placeholder="Ej: 4" />
+              </div>
+            </div>
+
+            <div class="form-grupo">
+              <label>Estado</label>
+              <select>
+                <option>Normal</option>
+                <option>Bajo</option>
+                <option>Crítico</option>
+              </select>
+            </div>
+
+            <div class="form-grupo">
+              <label>Comentario interno</label>
+              <input type="text" placeholder="Ej: Pedido a Farmacia Central" />
+            </div>
+
+            <button type="submit">Actualizar Stock</button>
+          </form>
+        </section>
+
+        <!-- =========================
+         FORMULARIO PERSONAL
+    ========================== -->
+        <section class="card">
+          <h2>Personal de Guardia</h2>
+          <div class="sub-texto">Asignación de turno</div>
+          <div class="linea"></div>
+
+          <form>
+            <div class="form-grupo">
+              <label>Nombre / Grado</label>
+              <input type="text" placeholder="Ej: Dra. S. Aguilar" />
+            </div>
+
+            <div class="form-grupo">
+              <label>Rol / Especialidad</label>
+              <input
+                type="text"
+                placeholder="Ej: Emergencióloga Jefe / Cardiología / Enfermería UCI"
+              />
+            </div>
+
+            <div class="form-grupo">
+              <label>Área asignada</label>
+              <input
+                type="text"
+                placeholder="Ej: UCI Adultos / Trauma Shock / Pediatría"
+              />
+            </div>
+
+            <div class="form-grupo">
+              <label>Horario</label>
+              <input type="text" placeholder="Ej: 22:00 - 06:00" />
+            </div>
+
+            <button type="submit">Agregar al Turno</button>
+          </form>
+        </section>
+      </div>
+
+      <div class="footer-mini">
+        Panel de Emergencias · Formulario Paciente · Formulario Recursos ·
+        Formulario Personal (Grid para la distribución, Flex en la maquetación
+        interna)
+      </div>
+    </div>
+  </body>
+</html>
