@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operación Matemática</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #007bff;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    #resultado {
+      background-color: #fff;
+      padding: 20px;
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      margin: 20px 0;
+      min-width: 250px;
+      text-align: center;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Calculadora Basica</h1>
+  <div id="resultado"></div>
+  <button id="nuevoCalculo" style="display:none;" onclick="calcular()">Realizar otra operación</button>
+
+  <script>
+    function calcular() {
+      // Pedir los datos al usuario
+      const num1 = parseFloat(prompt("Introduce el primer número:"));
+      const num2 = parseFloat(prompt("Introduce el segundo número:"));
+      const operacion = prompt("Elige una operación (+, -, *, /):");
+
+      // Validar si los números son válidos
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('resultado').innerHTML = "⚠️ Por favor, introduce números válidos.";
+        document.getElementById('nuevoCalculo').style.display = 'none';
+        return;
+      }
+
+      let resultado;
+      let operacionTexto;
+
+      // Realizar la operación según lo que elija el usuario
+      switch (operacion) {
+        case "+":
+          resultado = num1 + num2;
+          operacionTexto = `${num1} + ${num2}`;
+          break;
+        case "-":
+          resultado = num1 - num2;
+          operacionTexto = `${num1} - ${num2}`;
+          break;
+        case "*":
+          resultado = num1 * num2;
+          operacionTexto = `${num1} * ${num2}`;
+          break;
+        case "/":
+          if (num2 === 0) {
+            document.getElementById('resultado').innerHTML = "❌ No se puede dividir entre cero.";
+            document.getElementById('nuevoCalculo').style.display = 'none';
+            return;
+          }
+          resultado = num1 / num2;
+          operacionTexto = `${num1} ÷ ${num2}`;
+          break;
+        default:
+          document.getElementById('resultado').innerHTML = "⚠️ Operación no válida. Por favor, elige +, -, *, o /.";
+          document.getElementById('nuevoCalculo').style.display = 'none';
+          return;
+      }
+
+      // Mostrar el resultado y la operación en el HTML
+      document.getElementById('resultado').innerHTML = `Operación: ${operacionTexto} = <strong>${resultado}</strong>`;
+      
+      // Mostrar el botón para hacer otra operación
+      document.getElementById('nuevoCalculo').style.display = 'inline-block';
+    }
+
+    // Llamar a la función para ejecutar la calculadora por primera vez
+    calcular();
+  </script>
+</body>
+</html>
