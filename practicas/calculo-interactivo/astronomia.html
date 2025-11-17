@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+<title>Herramientas de Cálculo Interactivas</title>
+</head>
+<body>
+
+<header>
+<h1>Herramientas de Cálculo Interactivas</h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a onclick="mostrarEjercicio('brillo')">Brillo Estelar</a></li>
+<li><a onclick="mostrarEjercicio('distancias')">Distancias Planetas</a></li>
+<li><a onclick="mostrarEjercicio('crateres')">Cráteres Lunares</a></li>
+<li><a onclick="mostrarEjercicio('cuerpo')">Cuerpo Celeste</a></li>
+<li><a onclick="mostrarEjercicio('luz')">Niveles de Luz</a></li>
+</ul>
+</nav>
+
+<div class="main">
+
+<div id="brillo" class="exercise">
+<h2>Clasificación de Brillo Estelar</h2>
+<label class="input-field">Magnitud aparente: <input type="number" id="mag"></label>
+<button id="btnBrillo">Clasificar</button>
+<div id="outBrillo" class="output"></div>
+</div>
+
+<div id="distancias" class="exercise">
+<h2>Registro de Distancias de Planetas</h2>
+<label class="input-field">Número de planetas: <input type="number" id="numPlanetas"></label>
+<button id="btnDistancias">Registrar</button>
+<div id="outDistancias" class="output"></div>
+</div>
+
+<div id="crateres" class="exercise">
+<h2>Contar Cráteres Lunares Grandes</h2>
+<button id="btnCrateres">Contar</button>
+<div id="outCrateres" class="output"></div>
+</div>
+
+<div id="cuerpo" class="exercise">
+<h2>Identificar Cuerpo Celeste</h2>
+<label class="input-field">Código (1-5): <input type="number" id="codigo"></label>
+<button id="btnCuerpo">Identificar</button>
+<div id="outCuerpo" class="output"></div>
+</div>
+
+<div id="luz" class="exercise">
+<h2>Registro de Niveles de Luz (lux)</h2>
+<button id="btnLuz">Registrar</button>
+<div id="outLuz" class="output"></div>
+</div>
+
+</div>
+
+<footer>
+&copy; 2025 Herramientas de Cálculo Interactivas - Jorge
+</footer>
+
+<!-- Link al JS externo -->
+<script src="js/astronomia.js"></script>
+
+</body>
+</html>
+

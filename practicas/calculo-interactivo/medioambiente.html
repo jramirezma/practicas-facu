@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+<title>Herramientas de Cálculo Interactivas</title>
+</head>
+<body>
+
+<header>
+<h1>Herramientas de Cálculo Interactivas</h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a onclick="mostrarEjercicio('aqi')">Calidad del Aire</a></li>
+<li><a onclick="mostrarEjercicio('ruido')">Ruido Ambiental</a></li>
+<li><a onclick="mostrarEjercicio('focos')">Focos de Calor</a></li>
+<li><a onclick="mostrarEjercicio('residuos')">Residuos</a></li>
+<li><a onclick="mostrarEjercicio('rio')">Niveles del Río</a></li>
+</ul>
+</nav>
+
+<div class="main">
+
+<div id="aqi" class="exercise">
+<h2>Clasificación de Calidad del Aire (AQI)</h2>
+<label class="input-field">Valor AQI: <input type="number" id="valorAQI"></label>
+<button id="btnAQI">Clasificar</button>
+<div id="outAQI" class="output"></div>
+</div>
+
+<div id="ruido" class="exercise">
+<h2>Registro de Ruido Ambiental</h2>
+<label class="input-field">Número de mediciones: <input type="number" id="numRuido"></label>
+<button id="btnRuido">Registrar</button>
+<div id="outRuido" class="output"></div>
+</div>
+
+<div id="focos" class="exercise">
+<h2>Contar Focos de Calor</h2>
+<button id="btnFocos">Contar</button>
+<div id="outFocos" class="output"></div>
+</div>
+
+<div id="residuos" class="exercise">
+<h2>Clasificación de Residuos</h2>
+<label class="input-field">Código (1-4): <input type="number" id="codigoResiduo"></label>
+<button id="btnResiduo">Clasificar</button>
+<div id="outResiduo" class="output"></div>
+</div>
+
+<div id="rio" class="exercise">
+<h2>Monitoreo de Niveles del Río</h2>
+<button id="btnRio">Registrar</button>
+<div id="outRio" class="output"></div>
+</div>
+
+</div>
+
+<footer>
+&copy; 2025 Herramientas de Cálculo Interactivas - Jorge
+</footer>
+
+<!-- Script externo -->
+<script src="js/medioambiente.js"></script>
+
+</body>
+</html>
+

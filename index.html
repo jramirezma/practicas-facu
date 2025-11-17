@@ -2,48 +2,25 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>INF-113 - Mis Prácticas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #0066cc;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        li {
-            margin: 10px 0;
-            text-align: center;
-        }
-        a {
-            text-decoration: none;
-            background-color: #0066cc;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        a:hover {
-            background-color: #004999;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Portal de Prácticas INF-113</h1>
-    <ul>
-        <li><a href="practicas/formulario/">Formulario</a></li>
-        <li><a href="practicas/imagenes/">Imágenes</a></li>
-        <li><a href="practicas/landingpage/">Landing Page</a></li>
-    </ul>
+    <header class="site-header">
+        <h1>Portal de Prácticas INF-113</h1>
+    </header>
+
+    <main class="container">
+        <nav class="tiles" aria-label="Menú de prácticas">
+            <a class="tile" href="practicas/formulario/index.html">Formulario</a>
+            <a class="tile" href="practicas/imagenes/index.html">Imágenes</a>
+            <a class="tile" href="practicas/landingpage/index.html">Landing Page</a>
+            <a class="tile" href="practicas/calculo-interactivo/index.html">Cálculo Interactivo</a>
+        </nav>
+
+        <p class="note">Selecciona una práctica para abrirla.</p>
+    </main>
 </body>
 </html>
 

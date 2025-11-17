@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+<title>Herramientas de Cálculo Interactivas - Salud</title>
+</head>
+<body>
+
+<header>
+<h1>Herramientas de Cálculo Interactivas - Salud</h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a onclick="mostrarEjercicio('presion')">Clasificación Presión Arterial</a></li>
+<li><a onclick="mostrarEjercicio('temperatura')">Temperatura Pacientes</a></li>
+<li><a onclick="mostrarEjercicio('fiebre')">Contar Pacientes con Fiebre</a></li>
+<li><a onclick="mostrarEjercicio('triage')">Clasificación TRIAGE</a></li>
+<li><a onclick="mostrarEjercicio('spo2')">Mediciones SpO2</a></li>
+</ul>
+</nav>
+
+<div class="main">
+
+<div id="presion" class="exercise">
+<h2>Clasificación de Presión Arterial</h2>
+<label class="input-field">Presión Sistólica: <input type="number" id="sistolica"></label>
+<label class="input-field">Presión Diastólica: <input type="number" id="diastolica"></label>
+<button id="btnPresion">Clasificar</button>
+<div id="outPresion" class="output"></div>
+</div>
+
+<div id="temperatura" class="exercise">
+<h2>Registro de Temperatura de Pacientes</h2>
+<label class="input-field">Número de pacientes: <input type="number" id="numPacientes"></label>
+<button id="btnTemperatura">Registrar</button>
+<div id="outTemperatura" class="output"></div>
+</div>
+
+<div id="fiebre" class="exercise">
+<h2>Contar Pacientes con Fiebre</h2>
+<button id="btnFiebre">Contar</button>
+<div id="outFiebre" class="output"></div>
+</div>
+
+<div id="triage" class="exercise">
+<h2>Clasificación TRIAGE</h2>
+<label class="input-field">Código (1-4): <input type="number" id="codigoTriage"></label>
+<button id="btnTriage">Clasificar</button>
+<div id="outTriage" class="output"></div>
+</div>
+
+<div id="spo2" class="exercise">
+<h2>Registro de Mediciones SpO2</h2>
+<button id="btnSpO2">Registrar</button>
+<div id="outSpO2" class="output"></div>
+</div>
+
+</div>
+
+<footer>
+&copy; 2025 Herramientas de Cálculo Interactivas - Jorge
+</footer>
+
+<!-- Link al JS externo -->
+<script src="js/salud.js"></script>
+
+</body>
+</html>
+

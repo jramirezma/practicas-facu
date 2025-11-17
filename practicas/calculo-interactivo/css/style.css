@@ -1,0 +1,88 @@
+/* style.css - Estilos generales para todas las páginas */
+
+html, body { 
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+body { 
+    flex: 1; 
+}
+
+header {
+    width: 100%;
+    background: #444;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+nav {
+    width: 100%;
+    background: #333;
+}
+nav ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+}
+nav ul li { 
+    margin: 5px 15px; 
+}
+nav ul li a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+nav ul li a:hover { 
+    text-decoration: underline; 
+}
+
+.main { 
+    flex: 1; 
+    padding: 20px; 
+}
+
+.exercise { 
+    display: none; 
+    margin: 20px 0; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    background: #f9f9f9; 
+}
+.input-field { 
+    margin: 5px 0; 
+}
+.output { 
+    margin-top: 10px; 
+    white-space: pre-line; 
+}
+
+footer { 
+    text-align: center; 
+    padding: 15px; 
+    background: #333; 
+    color: white; 
+    margin-top: auto; 
+}
+
+/* Media Queries */
+@media(max-width:768px){
+    nav ul li{ margin:5px 8px; font-size:14px;}
+    .exercise{font-size:14px;}
+}
+@media(max-width:480px){
+    nav ul{flex-direction:column;text-align:center;}
+    nav ul li{margin:5px 0;}
+    .exercise{font-size:13px;}
+    header{font-size:16px;}
+}
+

@@ -1,0 +1,81 @@
+/* Reset muy sencillo */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Layout general */
+html, body { height: 100%; font-family: Arial, sans-serif; background: #f4f4f4; color: #222; }
+
+.site-header {
+    background: #0066cc;
+    color: #fff;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.container {
+    max-width: 980px;
+    margin: 28px auto;
+    padding: 0 16px 48px;
+}
+
+/* Título */
+.site-header h1 { font-size: 1.4rem; font-weight: 700; }
+
+/* Tiles / menú */
+.tiles {
+    display: grid;
+    gap: 14px;
+    margin: 18px 0;
+}
+
+/* Cada tile (botón grande) */
+.tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: #0066cc;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Hover/Focus accesible */
+.tile:hover,
+.tile:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    background: #0052a3;
+    outline: none;
+}
+
+/* Nota explicativa */
+.note {
+    margin-top: 12px;
+    color: #444;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* Responsive: móvil (1 columna) */
+@media (max-width: 599px) {
+    .tiles { grid-template-columns: 1fr; }
+    .site-header h1 { font-size: 1.2rem; }
+}
+
+/* Tablet: 2 columnas */
+@media (min-width: 600px) and (max-width: 959px) {
+    .tiles { grid-template-columns: repeat(2, 1fr); }
+    .site-header h1 { font-size: 1.3rem; }
+}
+
+/* Escritorio: 3 columnas si entra */
+@media (min-width: 960px) {
+    .tiles { grid-template-columns: repeat(3, 1fr); }
+    .container { padding-top: 8px; }
+    .site-header h1 { font-size: 1.4rem; }
+}
+
