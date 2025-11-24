@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numero = 234;
+        let copia = numero;
+
+        let invertido = 0;
+        while (copia > 0) {
+            let digito = copia % 10;
+            invertido = invertido * 10 + digito;
+            copia = Math.floor(copia / 10)
+        }
+
+        if (numero === invertido) {
+            console.log("es capicua");
+        } else {
+            console.log("no es capicua.");
+        }
+    </script>
+</body>
+
+</html>
