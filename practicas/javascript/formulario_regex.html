@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <script>
+        function validarFormulario() {
+            // Obtener los valores de los campos
+            var usuario = document.getElementById("usuario").value;
+            var password = document.getElementById("password").value;
+            var celular = document.getElementById("celular").value;
+
+            // Validación de usuario (correo electrónico)
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailRegex.test(usuario)) {
+                alert("Por favor, ingresa un correo electrónico válido.");
+                return false;
+            }
+
+            // Validación de contraseña (al menos 4 caracteres y solo mayúsculas)
+            var passwordRegex = /^[A-Z]{4,}$/;
+            if (!passwordRegex.test(password)) {
+                alert("La contraseña debe tener al menos 4 caracteres y ser solo en mayúsculas.");
+                return false;
+            }
+
+            // Validación de celular (número de Bolivia, debe comenzar con +591 y seguir 8 dígitos)
+            var celularRegex = /^\+591[0-9]{8}$/;
+            if (!celularRegex.test(celular)) {
+                alert("El número de celular debe ser válido y comenzar con +591.");
+                return false;
+            }
+
+            // Si pasa todas las validaciones
+            alert("Formulario enviado correctamente.");
+            return true;
+        }
+
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            var toggleButton = document.getElementById("togglePassword");
+
+            // Cambiar tipo del campo de contraseña dependiendo del estado del checkbox
+            if (toggleButton.checked) {
+                passwordField.type = "text";  // Mostrar la contraseña
+            } else {
+                passwordField.type = "password";  // Ocultar la contraseña
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Formulario de Registro</h2>
+    <form onsubmit="return validarFormulario()">
+        <div>
+            <label for="usuario">Usuario (Correo electrónico):</label>
+            <input type="text" id="usuario" name="usuario" required>
+        </div>
+        <div>
+            <label for="password">Contraseña (Solo mayúsculas, mínimo 4 caracteres):</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <input type="checkbox" id="togglePassword" onclick="togglePasswordVisibility()"> Ver contraseña
+        </div>
+        <div>
+            <label for="celular">Celular (ej: +59170123456):</label>
+            <input type="text" id="celular" name="celular" required>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
