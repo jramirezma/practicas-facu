@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Capicúa con vectores</title>
 </head>
-
 <body>
     <script>
-        let numero = 234;
-        let copia = numero;
+			// Determinar si es capicúa
+        let numero = [1, 2, 1];
 
-        let invertido = 0;
-        while (copia > 0) {
-            let digito = copia % 10;
-            invertido = invertido * 10 + digito;
-            copia = Math.floor(copia / 10)
+        let esCapicua = true; 
+        let longitud = numero.length;
+
+        for (let i = 0; i < Math.floor(longitud / 2); i++) {
+            if (numero[i] !== numero[longitud - 1 - i]) {
+                esCapicua = false;
+                break;
+            }
         }
 
-        if (numero === invertido) {
+        if (esCapicua) {
             console.log("es capicua");
         } else {
             console.log("no es capicua.");
         }
     </script>
 </body>
-
 </html>
