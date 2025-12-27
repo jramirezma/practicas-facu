@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - Sistema de Autenticación</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <div class="contenedor">
+    <h1>INICIAR SESIÓN</h1>
+
+    <!-- Mensaje de estado -->
+    <div id="mensajeLogin" class="mensaje"></div>
+
+    <form id="formularioLogin" class="formulario" novalidate>
+      <div class="campo">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" autocomplete="email" required>
+      </div>
+
+      <div class="campo campo-contrasena">
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" autocomplete="current-password" required>
+        <button type="button" id="mostrarContrasena" class="boton-mostrar" aria-label="Mostrar contraseña">Ojo</button>
+      </div>
+
+      <button type="submit" class="boton-principal">INGRESAR</button>
+    </form>
+
+    <div class="enlace">
+      <p>¿No tienes cuenta? <a href="registro.html">Registrarse</a></p>
+      <p id="enlaceRecuperacion">
+        <a href="recuperacion.html">¿Olvidaste tu contraseña?</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/validaciones.js"></script>
+</body>
+</html>

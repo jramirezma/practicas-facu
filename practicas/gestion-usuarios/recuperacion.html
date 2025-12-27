@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar Contraseña - Sistema de Autenticación</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <div class="contenedor">
+    <h1>RECUPERAR CONTRASEÑA</h1>
+
+    <!-- Mensaje de estado -->
+    <div id="mensajeRecuperacion" class="mensaje"></div>
+
+    <!-- Mostramos el correo si viene por URL (ej: ?correo=usuario@ejemplo.com) -->
+    <div id="infoCorreo" style="margin-bottom: 20px; font-size: 15px; color: var(--color-secundario);"></div>
+
+    <form id="formularioRecuperacion" class="formulario" novalidate>
+
+      <!-- Campo correo solo se muestra si NO viene por URL -->
+      <div class="campo" id="campoCorreo" style="display: none;">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" autocomplete="email" required>
+      </div>
+
+      <div style="text-align: left; margin-bottom: 20px; padding: 14px; background-color: #f8f9fa; border-radius: 6px; font-size: 14px;">
+        <strong>La nueva contraseña debe cumplir:</strong>
+        <ul style="margin: 10px 0; padding-left: 20px;">
+          <li>Mínimo 6 caracteres</li>
+          <li>Al menos una mayúscula</li>
+          <li>Al menos una minúscula</li>
+          <li>Al menos un número</li>
+          <li>Al menos un carácter especial (!@#$%^&* etc.)</li>
+        </ul>
+      </div>
+
+      <div class="campo campo-contrasena">
+        <label for="nuevaContrasena">Nueva contraseña</label>
+        <input type="password" id="nuevaContrasena" autocomplete="new-password" required>
+        <button type="button" id="mostrarContrasena" class="boton-mostrar" aria-label="Mostrar contraseña">Ojo</button>
+      </div>
+
+      <button type="submit" class="boton-principal">ACTUALIZAR CONTRASEÑA</button>
+    </form>
+
+    <div class="enlace">
+      <p><a href="login.html">Volver al inicio de sesión</a></p>
+    </div>
+  </div>
+
+  <script src="js/validaciones.js"></script>
+</body>
+</html>

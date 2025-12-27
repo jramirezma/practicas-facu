@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido - Sistema de Autenticación</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <div class="contenedor">
+    <h1 id="tituloBienvenida">BIENVENIDO</h1>
+
+    <!-- Mensaje personalizado -->
+    <div id="mensajeBienvenida" style="
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 20px;
+      border-radius: 6px;
+      margin: 30px 0;
+      font-size: 18px;
+      font-weight: 500;
+    "></div>
+
+    <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 6px;">
+      <p><strong>Nombre completo:</strong> <span id="nombreUsuario"></span></p>
+      <p><strong>Correo electrónico:</strong> <span id="correoUsuario"></span></p>
+      <p><strong>Teléfono móvil:</strong> <span id="movilUsuario"></span></p>
+      <p><strong>Fecha de registro:</strong> <span id="fechaRegistro"></span></p>
+      <p><strong>Estado de la cuenta:</strong> <span id="estadoCuenta" style="color: #28a745; font-weight: 600;"></span></p>
+    </div>
+
+    <button id="botonCerrarSesion" class="boton-principal" style="margin-top: 30px; background-color: #dc3545;">
+      CERRAR SESIÓN
+    </button>
+
+    <div class="enlace" style="margin-top: 20px;">
+      <p><a href="login.html">Volver al inicio de sesión</a></p>
+    </div>
+  </div>
+
+  <script src="js/validaciones.js"></script>
+  <script>
+    // Este pequeño script se ejecuta solo en dashboard.html
+    document.addEventListener("DOMContentLoaded", function () {
+      const usuarioActual = JSON.parse(sessionStorage.getItem("usuarioActual"));
+
+      if (!usuarioActual) {
+        // Si no hay usuario en sessionStorage, redirigir al login
+        window.location.href = "login.html";
+        return;
+      }
+
+      // Rellenar datos
+      document.getElementById("tituloBienvenida").textContent = `¡HOLA, ${usuarioActual.nombreCompleto.toUpperCase()}!`;
+      document.getElementById("mensajeBienvenida").textContent = `Has iniciado sesión correctamente.`;
+      document.getElementById("nombreUsuario").textContent = usuarioActual.nombreCompleto;
+      document.getElementById("correoUsuario").textContent = usuarioActual.correoElectronico;
+      document.getElementById("movilUsuario").textContent = usuarioActual.numeroMovil;
+      
+      // Formatear fecha
+      const fecha = new Date(usuarioActual.fechaRegistro);
+      document.getElementById("fechaRegistro").textContent = fecha.toLocaleString("es-BO");
+
+      // Estado de cuenta
+      const estadoSpan = document.getElementById("estadoCuenta");
+      estadoSpan.textContent = usuarioActual.estadoCuenta;
+      if (usuarioActual.estadoCuenta === "BLOQUEADO") {
+        estadoSpan.style.color = "#dc3545";
+      }
+
+      // Botón cerrar sesión
+      document.getElementById("botonCerrarSesion").addEventListener("click", function () {
+        sessionStorage.removeItem("usuarioActual");
+        window.location.href = "login.html";
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+/* ============================================
+   ESTILOS GLOBALES - Sistema de Autenticación
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+/* Variables de color */
+:root {
+  --color-primario: #007bff;
+  --color-primario-hover: #0056b3;
+  --color-secundario: #6c757d;
+  --color-exito: #28a745;
+  --color-error: #dc3545;
+  --color-advertencia: #ffc107;
+  --color-fondo: #f8f9fa;
+  --color-texto: #212529;
+  --color-borde: #ced4da;
+  --color-borde-focus: #80bdff;
+  --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor principal centrado */
+.contenedor {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* Títulos */
+h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: var(--color-texto);
+}
+
+/* Formularios */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.campo {
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-texto);
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px var(--color-borde-focus);
+}
+
+/* Contenedor para contraseña + botón ojo */
+/* Campo contraseña con toggle mejorado */
+.campo-contrasena {
+  position: relative;
+}
+
+.toggle-visibilidad {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.boton-mostrar {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--color-secundario);
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.boton-mostrar:hover {
+  background-color: rgba(0,0,0,0.05);
+  color: var(--color-texto);
+}
+
+/* Cambio de icono cuando está marcado */
+.toggle-visibilidad:checked + .boton-mostrar {
+  color: var(--color-primario);
+}
+
+/* Botón principal */
+.boton-principal {
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.boton-principal:hover {
+  background-color: var(--color-primario-hover);
+}
+
+/* Enlaces */
+.enlace {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.enlace a {
+  color: var(--color-primario);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.enlace a:hover {
+  text-decoration: underline;
+}
+
+/* Mensajes de estado */
+.mensaje {
+  padding: 14px;
+  margin: 20px 0;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  display: none;
+  border: 1px solid transparent;
+}
+
+.mensaje-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+.mensaje-exito {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.mensaje-advertencia {
+  background-color: #fff3cd;
+  color: #856404;
+  border-color: #ffeaa7;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contenedor {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  input[type="email"],
+  input[type="text"],
+  input[type="password"],
+  input[type="tel"] {
+    font-size: 16px; /* Evita zoom en iOS */
+  }
+}
