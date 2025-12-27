@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diapositiva 1 - Título</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-30px);
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(-20px);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .description {
+            font-size: 1.3rem;
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(-10px);
+            margin-bottom: 60px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+        }
+
+        .credits {
+            position: absolute;
+            bottom: 40px;
+            font-size: 1rem;
+            text-align: center;
+            opacity: 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .credits p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .description {
+                font-size: 1.1rem;
+            }
+            
+            .slide-container {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h1 class="main-title">División automatizada de gastos en Python</h1>
+        <h2 class="subtitle">Proyecto de Programación I</h2>
+        <p class="description">
+            Una herramienta que calcula consumos, propina proporcional y totales por persona de forma simple y precisa.
+        </p>
+        <div class="credits">
+            <p>Programación I</p>
+            <p>2025</p>
+        </div>
+    </div>
+
+    <script>
+        // Animación secuencial con anime.js
+        anime.timeline({
+            easing: 'easeOutExpo'
+        })
+        .add({
+            targets: '.main-title',
+            opacity: [0, 1],
+            translateY: [-30, 0],
+            duration: 1000,
+            delay: 200
+        })
+        .add({
+            targets: '.subtitle',
+            opacity: [0, 1],
+            translateY: [-20, 0],
+            duration: 800,
+            delay: 300
+        }, '-=600')
+        .add({
+            targets: '.description',
+            opacity: [0, 1],
+            translateY: [-10, 0],
+            duration: 800,
+            delay: 400
+        }, '-=500')
+        .add({
+            targets: '.credits',
+            opacity: [0, 1],
+            duration: 600,
+            delay: 500
+        }, '-=400');
+    </script>
+</body>
+</html>
